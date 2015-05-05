@@ -52,6 +52,11 @@ public class CivMute {
 				event.setCanceled(true);
 			}
 		}
+		Pattern muteMsg = Pattern.compile("^To [a-zA-Z0-9]+: Sorry, but I have you muted!$");
+		Matcher muteMatcher = muteMsg.matcher(msg);
+		while(muteMatcher.find()) {
+			event.setCanceled(true);
+		}
 	}
 	
 	class MuteCommand extends CommandBase {
